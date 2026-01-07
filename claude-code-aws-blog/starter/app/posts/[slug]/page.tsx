@@ -5,7 +5,6 @@ import remarkGfm from 'remark-gfm';
 import { getPostBySlug, getAllPostSlugs, formatDate } from '@/app/lib/posts';
 import { withBasePath } from '@/app/lib/basePath';
 import ReadingTimeBadge from '@/app/components/ReadingTimeBadge';
-import Comments from '@/app/components/Comments';
 
 interface PostPageProps {
   params: {
@@ -94,11 +93,6 @@ export default function PostPage({ params }: PostPageProps) {
       {/* Post Content */}
       <div className="prose">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
-      </div>
-
-      {/* Comments Section */}
-      <div className="mt-16">
-        <Comments postId={params.slug} />
       </div>
 
       {/* Back to Home Link (bottom) */}

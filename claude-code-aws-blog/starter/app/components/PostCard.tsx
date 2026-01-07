@@ -3,7 +3,6 @@ import { withBasePath } from '@/app/lib/basePath';
 import { formatDate } from '@/app/lib/posts';
 import type { Post } from '@/app/lib/posts';
 import ReadingTimeBadge from './ReadingTimeBadge';
-import CommentCount from './CommentCount';
 
 interface PostCardProps {
   post: Post;
@@ -37,11 +36,6 @@ export default function PostCard({ post }: PostCardProps) {
       {/* Date and Author */}
       <div className="post-meta">
         {formatDate(date)} <span className="author">by {author}</span>
-      </div>
-
-      {/* Comment Count */}
-      <div className="post-comment-count">
-        <CommentCount postId={slug} />
       </div>
 
       {/* Tags */}

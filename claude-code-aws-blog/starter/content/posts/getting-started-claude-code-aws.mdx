@@ -2,7 +2,9 @@
 title: "Getting Started with Claude Code on AWS"
 date: "2025-10-22"
 author: "Sarah Chen"
-excerpt: "Learn how to set up Claude Code with AWS Bedrock for AI-powered development workflows."
+excerpt:
+  "Learn how to set up Claude Code with AWS Bedrock for AI-powered development
+  workflows."
 category: "GETTING STARTED"
 tags: ["AWS", "Claude Code", "Bedrock", "Setup"]
 published: true
@@ -10,7 +12,9 @@ published: true
 
 # Getting Started with Claude Code on AWS
 
-Claude Code is a powerful AI-powered development tool that integrates seamlessly with AWS Bedrock. This guide will walk you through the setup process and show you how to leverage Claude's capabilities for your AWS projects.
+Claude Code is a powerful AI-powered development tool that integrates seamlessly
+with AWS Bedrock. This guide will walk you through the setup process and show
+you how to leverage Claude's capabilities for your AWS projects.
 
 ## Prerequisites
 
@@ -72,10 +76,41 @@ Run Claude Code and ask it to implement the function:
 
 ## Best Practices
 
-1. **Use specific prompts**: The more context you provide, the better Claude's suggestions
-2. **Leverage AWS context**: Claude understands AWS service patterns and best practices
-3. **Iterate incrementally**: Build features step by step with Claude's assistance
+1. **Use specific prompts**: The more context you provide, the better Claude's
+   suggestions
+2. **Leverage AWS context**: Claude understands AWS service patterns and best
+   practices
+3. **Iterate incrementally**: Build features step by step with Claude's
+   assistance
 4. **Review generated code**: Always review and test AI-generated code
+
+## Troubleshooting Common Issues
+
+If you encounter issues during setup, here are some common problems and their
+solutions:
+
+**Authentication Errors**: If you receive authentication errors when connecting
+to Bedrock, verify that your AWS credentials are correctly configured and that
+your IAM role has the necessary permissions. You can check this by running
+`aws sts get-caller-identity` to confirm your identity.
+
+**Model Access Denied**: Some Claude models require explicit access requests in
+the AWS Bedrock console. Navigate to the Model access page in Bedrock and
+request access to the specific Claude model versions you need (Claude 3 Sonnet,
+Claude 3 Opus, etc.).
+
+**Region Availability**: Not all AWS regions support Bedrock. Currently, Bedrock
+is available in us-east-1, us-west-2, and several other regions. Make sure
+you're using a supported region in your configuration.
+
+- Check AWS service health dashboard for outages
+- Review CloudWatch logs for detailed error messages
+  - Enable debug mode in Claude Code for verbose logging
+    - Use `claude-code --debug` flag for troubleshooting
+
+**Connection Timeouts**: If you experience timeouts, this could be due to
+network issues or VPC configurations. Ensure your network allows outbound HTTPS
+traffic to AWS Bedrock endpoints.
 
 ## Next Steps
 
