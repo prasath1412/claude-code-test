@@ -9,8 +9,8 @@ def find_duplicates(items):
     """
     Find all duplicate items in a list.
 
-    Current implementation: O(n²) with nested loops
-    Issue: Checks every pair of items and uses 'not in' for list lookup
+    Optimized implementation: O(n) with set-based lookup
+    Uses hash table for O(1) membership testing
 
     Args:
         items: List of items to check for duplicates
@@ -18,12 +18,16 @@ def find_duplicates(items):
     Returns:
         List of duplicate items (each duplicate appears once)
     """
-    duplicates = []
-    for i in range(len(items)):
-        for j in range(i + 1, len(items)):
-            if items[i] == items[j] and items[i] not in duplicates:
-                duplicates.append(items[i])
-    return duplicates
+    seen = set()
+    duplicates = set()
+
+    for item in items:
+        if item in seen:
+            duplicates.add(item)
+        else:
+            seen.add(item)
+
+    return list(duplicates)
 
 
 def calculate_statistics(data):
